@@ -23,7 +23,12 @@ This legend is a guide to reading and interpreting the table listings under 0NF 
 
 **OrderDetail:**(<u class="fk">OrderNumber</u>)
 ### 2NF
-**customer:**  <span class="md"><b class="pk"><u class="fk"><u class="fk"> ItemNumber</u>,PONumber</b>
+**customer:**  <span class="md"><b class="pk"><u class="fk">ItemNumber</u><u class="fk">PONumber</u></b>,Quantity,Cost)</span>
+
+**PurchaseOrder** <span class="md"><b class ="pk">PONumber</b>,SupplierNumber,Date)</span>
+
+### 3NF
+
 
 
 
