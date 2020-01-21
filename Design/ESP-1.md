@@ -16,12 +16,14 @@ This legend is a guide to reading and interpreting the table listings under 0NF 
 ### 0NF
 
 
-**customer:**(<b class="pk">OrderNumber</b>,CustomerNumber,FirstName,LastName,Adress,City,Province,PostalCode,Phone,Data<b class="rg">{</b>ItemNumber,Description,Quantity,CurrentPrice,SellingPrice,Amount<b class="rg">}</b> ,Subtotal,GST,Total)
+**customer:** <span class="md"><b class="pk">OrderNumber</b>,CustomerNumber,FirstName,LastName,Adress,City,Province,PostalCode,Phone,Data<b class="rg">{</b>ItemNumber,Description,Quantity,CurrentPrice,SellingPrice,Amount<b class="rg">}</b> ,Subtotal,GST,Total </span>)
 
 ### 1NF 
-**customer**(<b class="pk">OrderNumber</b>,CustomerNumber,FirstName,LastName,Adress,City,Province,PostalCode,Phone,Data,Subtotal,GST,Total)
+**customer** <span class="md"><b class="pk"><u class="fk">OrderNumber</u>,CustomerNumber</b>,FirstName,LastName,Adress,City,Province,PostalCode,Phone,Data,Subtotal,GST,Total)
 
-**OrderDetail**(<u class="fk">OrderNumber</u>)
+**OrderDetail:**(<u class="fk">OrderNumber</u>)
+### 2NF
+**customer:**  <span class="md"><b class="pk"><u class="fk"><u class="fk"> ItemNumber</u>,PONumber</b>
 
 
 
