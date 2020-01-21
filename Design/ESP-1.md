@@ -106,8 +106,6 @@ This legend is a guide to reading and interpreting the table listings under 0NF 
     font-weight: bold;
 }
 
-
-
 }
 .note {
     font-weight: bold;
