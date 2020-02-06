@@ -23,7 +23,7 @@ CREATE TABLE Students
     PRIMARY KEY     
     IDENTITY(20200001, 1)          NOT NULL,
   GivenName       varchar(50)      NOT NULL,
-  -- % is a wildcard for zero or more characters (letter, digit, or other characgters)
+  -- % is a wildcard for zero or more characters (letter, digit, or other characgters) test
   -- _ is a wildcard for a single character (letter, digit, or other character)
   -- [] are used to represent a range or set of characters that are allowed
 
