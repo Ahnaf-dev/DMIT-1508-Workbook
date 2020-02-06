@@ -23,8 +23,25 @@ CREATE TABLE Students
     PRIMARY KEY     
     IDENTITY(20200001, 1)          NOT NULL,
   GivenName       varchar(50)      NOT NULL,
-  Surname         varchar(50)      NOT NULL,
-  DateOfBirth     datetime         NOT NULL,  
+  -- % is a wildcard for zero or more characters (letter, digit, or other characgters)
+  -- _ is a wildcard for a single character (letter, digit, or other character)
+  -- [] are used to represent a range or set of characters that are allowed
+
+  Surname         varchar(50)     
+        CONSTRAINT CK_Students_Surname
+        CHECK (Surname LIKE '__%')               -- LIKE allows us to do a "pattern-match" of values
+--      CHECK (Surname LIKE'[a-z][a-z]%')
+--                           \1/\1/
+--     POSITIVE match for "fred"
+--     POSITIVE match for "Wu"
+--     Negaive match for 'f'
+--     Negative match for '2udor
+                                  NOT NULL,
+
+  DateOfBirth     datetime
+   CONSTRAINT CK_Students_DateOfBirth
+   CHECK (DateOfBirth < GETDATE())
+                                  NOT NULL,   
   Enrolled        bit             
   CONSTRAINT DF_Students_Enrolled
   DEFAULT (1)                      NOT NULL, 
@@ -36,7 +53,11 @@ CREATE TABLE Courses
   PRIMARY KEY                      NOT NULL,
   [Name]           varchar(50)     NOT NULL,
   Credits          decimal(3,1)    NOT NULL,
-  [Hours]          tinyint         NOT NULL,
+  [Hours]          tinyint 
+         CONSTRAINT CK_Courses_Hours
+			   CHECK ([Hours] BETWEEN 15 AND 180)
+--			 CHECK ([Hours] >= 15 AND [Hours] <= 180)        
+                                   NOT NULL,
   Active           bit             NOT NULL,
   Cost             money           NOT NULL,
 )
