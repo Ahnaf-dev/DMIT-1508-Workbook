@@ -115,3 +115,4 @@ CREATE NONCLUSTERED INDEX IX_Students_Surname
         CHECK (PostalCode LIKE '[A-Z][0-9][A-Z][0-9][A-Z][0-9]')
     --  Match for T4R1H2          T     4   R    1    H    2    
 
+    GO
